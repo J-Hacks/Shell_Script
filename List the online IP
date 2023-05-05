@@ -1,0 +1,13 @@
+#!/bin/bash
+
+host="/source_path"
+for ip in $(cat $host)
+
+do
+
+    ping -c1 $ip &> /dev/null
+    if [ $? -eq 0 ]
+    then
+    echo $ip is up
+    fi
+done
