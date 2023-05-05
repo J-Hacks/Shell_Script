@@ -1,0 +1,11 @@
+#!/bin/bash
+# List the ip adress need to check in source_path location
+host="/source_path"
+for ip in $(cat $host)
+do
+    ping -c1 $ip &> /dev/null
+    if [ $? -ne 0 ]
+    then
+    echo $ip is down
+    fi
+done
