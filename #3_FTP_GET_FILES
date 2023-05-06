@@ -1,0 +1,13 @@
+#! /bin/bash
+HOST='192.168.50.102'
+USER='username'
+PASSWD='*****'
+ftp -n -v $HOST << EOT
+ascii
+user $USER $PASSWD
+cd /home/second/Downloads
+get File_Name1
+get File_Name2
+get File_Name3
+bye
+EOF
