@@ -1,0 +1,23 @@
+#!/bin/bash
+# Run this script in remote machine with sudo privilage through remote ssh login
+# This script is aplicable for machine having single ethernet interface and make sure of that.
+DeviceName=$(nmcli device | grep en | awk '{print $1}')
+echo "configure for $DeviceName "
+echo "Enter new ip address :"
+read  IpAddress
+echo "Enter new ip Gate way :"
+read  Gw
+echo "Enter new ip DNS :"
+read  Dns
+# Assigning IpAddress
+nmcli device modify $DeviceName ipv4.addresses $IpAddress/24
+#Assigning GateWay
+nmcli device modify $DeviceName ipv4.gateway $Gw
+#Assigning Dns
+nmcli device modify $DeviceName ipv4.dns "$Dns"
+# make it as static
+nmcli device modify $DeviceName ipv4.method manual
+# Reload the configuration
+nmcli connection reload
+# Then exit the terminal
+exit
