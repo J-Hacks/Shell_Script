@@ -1,4 +1,4 @@
-$machines = Get-Content -Path "C:\list\ip.txt" 
+$machines = Get-Content -Path "C:\path\ip.txt" 
 $credential = Get-Credential
 foreach ($machine in $machines)
 {     
