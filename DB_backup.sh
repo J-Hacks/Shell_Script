@@ -1,5 +1,4 @@
 #!/bin/bash
-
 DB_USER="root"
 DB_PASSWORD="password"
 DB_NAME="mydatabase"
